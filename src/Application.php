@@ -27,6 +27,9 @@ class Application extends Cilex
         };
 
         $this->addLogging();
+
+        $this->command(new Command\Analyze\RunCommand());
+        $this->command(new Command\Compare\RunCommand());
     }
 
     /**
