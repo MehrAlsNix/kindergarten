@@ -162,7 +162,9 @@ class Application extends Cilex
                 if (is_readable($user_config_file)) {
                     $config_files[] = $user_config_file;
                 }
-                return []; // Factory::fromFiles($config_files, true);
+
+                $resource = new \Symfony\Component\Config\Resource\FileResource('');
+                return $resource; // Factory::fromFiles($config_files, true);
             }
         );
     }
