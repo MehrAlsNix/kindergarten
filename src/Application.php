@@ -26,8 +26,7 @@ class Application extends Cilex
             return new Stopwatch();
         };
 
-        // $this->addLogging();
-        // $this->addConfiguration();
+        $this->addLogging();
     }
 
     /**
@@ -46,7 +45,7 @@ class Application extends Cilex
             $app = new Shell($app);
         }
         $output = new Console\Output\Output();
-        // $output->setLogger($this['monolog']);
+        $output->setLogger($this['monolog']);
         $app->run(new ArgvInput(), $output);
     }
 
@@ -69,15 +68,20 @@ class Application extends Cilex
         $app = $this;
         $this['monolog.configure'] = $this->protect(
             function ($log) use ($app) {
-                $level = (string)$app['config']->logging->level;
+                $level = 'error';//(string)$app['config']->logging->level;
 
-                $logPath = isset($app['config']->logging->paths->default)
+                $logPath = null;
+                    /*
+                    isset($app['config']->logging->paths->default)
                     ? (string)$app['config']->logging->paths->default
                     : null;
-
-                $debugPath = isset($app['config']->logging->paths->errors)
+*/
+                $debugPath = null;
+                    /*
+                    isset($app['config']->logging->paths->errors)
                     ? (string)$app['config']->logging->paths->errors
                     : null;
+                    */
                 $app->configureLogger($log, $level, $logPath, $debugPath);
             }
         );
@@ -145,27 +149,5 @@ class Application extends Cilex
         } else {
             $monolog->pushHandler(new StreamHandler('php://stdout', $level));
         }
-    }
-
-    /**
-     * Adds the Configuration object to the DIC.
-     *
-     * @return void
-     */
-    protected function addConfiguration()
-    {
-        $this['config'] = $this->share(
-            function () {
-                $user_config_file = (file_exists(getcwd() . DIRECTORY_SEPARATOR . 'phpdoc.xml'))
-                    ? getcwd() . DIRECTORY_SEPARATOR . 'phpdoc.xml'
-                    : getcwd() . DIRECTORY_SEPARATOR . 'phpdoc.dist.xml';
-                if (is_readable($user_config_file)) {
-                    $config_files[] = $user_config_file;
-                }
-
-                $resource = new \Symfony\Component\Config\Resource\FileResource('');
-                return $resource; // Factory::fromFiles($config_files, true);
-            }
-        );
     }
 }
