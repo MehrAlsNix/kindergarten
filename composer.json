@@ -1,0 +1,19 @@
+{
+  "name": "siad007/kindergarten",
+  "description": "Der Kindergarten von mehr als nix!",
+  "keywords": [
+    "library"
+  ],
+  "authors": [
+    {
+      "name": "Mattias Meiner"
+    },
+    {
+      "name": "Siad Ardroumli",
+      "email": "siad.ardroumli@gmail.com"
+    }
+  ],
+  "require": {
+    "cilex/cilex": "1.*"
+  }
+}
