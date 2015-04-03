@@ -21,7 +21,7 @@ class RunCommand extends Command
         $this->setName('compare:run')
             ->setAliases(array('comp'))
             ->setDescription(
-                'Parses and transforms the given files to a specified location'
+                'Compares a callable against a list of others for measuring performance and memory consumption'
             )
             ->setHelp(
                 <<<HELP
@@ -29,132 +29,26 @@ class RunCommand extends Command
 HELP
             )
             ->addOption(
-                'target',
+                'list',
+                'l',
+                InputOption::VALUE_OPTIONAL,
+                'List of available callables to compare'
+            )
+            ->addOption(
+                'base',
+                'b',
+                InputOption::VALUE_REQUIRED,
+                'Base callable to compare against'
+            )
+            ->addOption(
+                'targets',
                 't',
-                InputOption::VALUE_OPTIONAL,
-                'Path where to store the generated output'
-            )
-            ->addOption(
-                'cache-folder',
-                null,
-                InputOption::VALUE_OPTIONAL,
-                'Path where to store the cache files'
-            )
-            ->addOption(
-                'filename',
-                'f',
-                InputOption::VALUE_OPTIONAL | InputOption::VALUE_IS_ARRAY,
-                'Comma-separated list of files to parse. The wildcards ? and * are supported'
-            )
-            ->addOption(
-                'directory',
-                'd',
-                InputOption::VALUE_OPTIONAL | InputOption::VALUE_IS_ARRAY,
-                'Comma-separated list of directories to (recursively) parse'
-            )
-            ->addOption(
-                'encoding',
-                null,
-                InputOption::VALUE_OPTIONAL,
-                'encoding to be used to interpret source files with'
-            )
-            ->addOption(
-                'extensions',
-                'e',
-                InputOption::VALUE_OPTIONAL | InputOption::VALUE_IS_ARRAY,
-                'Comma-separated list of extensions to parse, defaults to php, php3 and phtml'
-            )
-            ->addOption(
-                'ignore',
-                'i',
-                InputOption::VALUE_OPTIONAL | InputOption::VALUE_IS_ARRAY,
-                'Comma-separated list of file(s) and directories (relative to the source-code directory) that will be '
-                . 'ignored. Wildcards * and ? are supported'
-            )
-            ->addOption(
-                'ignore-tags',
-                null,
-                InputOption::VALUE_OPTIONAL | InputOption::VALUE_IS_ARRAY,
-                'Comma-separated list of tags that will be ignored, defaults to none. package, subpackage and ignore '
-                . 'may not be ignored.'
-            )
-            ->addOption(
-                'hidden',
-                null,
-                InputOption::VALUE_NONE,
-                'Use this option to tell phpDocumentor to parse files and directories that begin with a period (.), '
-                . 'by default these are ignored'
-            )
-            ->addOption(
-                'ignore-symlinks',
-                null,
-                InputOption::VALUE_NONE,
-                'Ignore symlinks to other files or directories, default is on'
-            )
-            ->addOption(
-                'markers',
-                'm',
-                InputOption::VALUE_OPTIONAL | InputOption::VALUE_IS_ARRAY,
-                'Comma-separated list of markers/tags to filter'
-            )
-            ->addOption(
-                'title',
-                null,
-                InputOption::VALUE_OPTIONAL,
-                'Sets the title for this project; default is the phpDocumentor logo'
-            )
-            ->addOption(
-                'force',
-                null,
-                InputOption::VALUE_NONE,
-                'Forces a full build of the documentation, does not increment existing documentation'
-            )
-            ->addOption(
-                'validate',
-                null,
-                InputOption::VALUE_NONE,
-                'Validates every processed file using PHP Lint, costs a lot of performance'
-            )
-            ->addOption(
-                'visibility',
-                null,
-                InputOption::VALUE_OPTIONAL | InputOption::VALUE_IS_ARRAY,
-                'Specifies the parse visibility that should be displayed in the documentation (comma separated e.g. '
-                . '"public,protected")'
-            )
-            ->addOption(
-                'defaultpackagename',
-                null,
-                InputOption::VALUE_OPTIONAL,
-                'Name to use for the default package.',
-                'Default'
-            )
-            ->addOption(
-                'sourcecode',
-                null,
-                InputOption::VALUE_NONE,
-                'Whether to include syntax highlighted source code'
-            )
-            ->addOption(
-                'progressbar',
-                'p',
-                InputOption::VALUE_NONE,
-                'Whether to show a progress bar; will automatically quiet logging to stdout'
-            )
-            ->addOption(
-                'template',
-                null,
-                InputOption::VALUE_OPTIONAL | InputOption::VALUE_IS_ARRAY,
-                'Name of the template to use (optional)'
-            )
-            ->addOption(
-                'parseprivate',
-                null,
-                InputOption::VALUE_NONE,
-                'Whether to parse DocBlocks marked with @internal tag'
+                InputOption::VALUE_REQUIRED | InputOption::VALUE_IS_ARRAY,
+                'Comma-separated list of callables to compare against base'
             );
         parent::configure();
     }
+
     /**
      * Executes the business logic involved with this command.
      *
