@@ -97,9 +97,9 @@ class Application extends Cilex
     }
 
     /**
-     * @param Logger     $logger
-     * @param int|string $level
-     * @param string     $logPath optional
+     * @param Logger      $logger
+     * @param int|string  $level
+     * @param string|null $logPath optional
      */
     public function configureLogger(Logger $logger, $level, $logPath = null)
     {
@@ -157,7 +157,7 @@ class Application extends Cilex
             return;
         }
 
-        if ($logPath) {
+        if ($logPath !== null) {
             $monolog->pushHandler(new StreamHandler($logPath, $level));
         } else {
             $monolog->pushHandler(new StreamHandler('php://stdout', $level));
