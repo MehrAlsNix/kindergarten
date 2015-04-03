@@ -65,11 +65,11 @@ class Application extends Cilex
                 'monolog.name' => 'kindergarten',
                 'monolog.logfile' => sys_get_temp_dir() . '/kindergarten.log',
                 'monolog.debugfile' => sys_get_temp_dir() . '/kindergarten.debug.log',
-                'monolog.level' => Logger::INFO,
+                'monolog.level' => Logger::INFO
             )
         );
         $app = $this;
-        $this['monolog.configure'] = $this->protect(
+        $this['monolog.configure'] = self::protect(
             function ($log) use ($app) {
                 $level = 'error';//(string)$app['config']->logging->level;
 
@@ -129,24 +129,25 @@ class Application extends Cilex
         if ($logPath) {
             $logPath = str_replace(
                 array('{APP_ROOT}', '{DATE}'),
-                array(realpath(__DIR__ . '/../..'), $this['kernel.timer.start']),
+                array(realpath(__DIR__ . '/..'), $this['kernel.timer.start']),
                 $logPath
             );
             $this['monolog.logfile'] = $logPath;
         }
-// remove all handlers from the stack
+
         try {
             while ($monolog->popHandler()) {
             }
         } catch (\LogicException $e) {
-// popHandler throws an exception when you try to pop the empty stack; to us this is not an
-// error but an indication that the handler stack is empty.
+            // popHandler throws an exception when you try to pop the empty stack; to us this is not an
+            // error but an indication that the handler stack is empty.
         }
+
         if ($level === 'quiet') {
             $monolog->pushHandler(new NullHandler());
             return;
         }
-// set our new handlers
+
         if ($logPath) {
             $monolog->pushHandler(new StreamHandler($logPath, $level));
         } else {
