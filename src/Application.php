@@ -27,7 +27,7 @@ class Application extends Cilex
         parent::__construct('kindergarten', self::$VERSION);
 
         $this['kernel.timer.start'] = time();
-        $this['kernel.stopwatch'] = function () {
+        $this['kernel.stopwatch'] = function() {
             return new Stopwatch();
         };
 
@@ -75,7 +75,7 @@ class Application extends Cilex
         );
         $app = $this;
         $this['monolog.configure'] = self::protect(
-            function ($log) use ($app) {
+            function($log) use ($app) {
                 $level = 'error';//(string)$app['config']->logging->level;
 
                 $logPath = null;
@@ -98,7 +98,7 @@ class Application extends Cilex
 
     /**
      * @param Logger      $logger
-     * @param int|string  $level
+     * @param string      $level
      * @param string|null $logPath optional
      */
     public function configureLogger(Logger $logger, $level, $logPath = null)
