@@ -29,12 +29,6 @@ class RunCommand extends Command
 HELP
             )
             ->addOption(
-                'list',
-                'l',
-                InputOption::VALUE_OPTIONAL,
-                'List of available callables to compare'
-            )
-            ->addOption(
                 'base',
                 'b',
                 InputOption::VALUE_REQUIRED,
