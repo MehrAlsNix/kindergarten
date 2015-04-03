@@ -1,6 +1,6 @@
 <?php
 
-namespace siad007\kindergarten\Command;
+namespace MehrAlsNix\kindergarten\Command;
 
 class Command extends \Cilex\Command\Command
 {

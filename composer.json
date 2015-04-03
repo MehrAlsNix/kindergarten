@@ -1,5 +1,5 @@
 {
-  "name": "siad007/kindergarten",
+  "name": "MehrAlsNix/kindergarten",
   "description": "Der Kindergarten von mehr als nix!",
   "keywords": [
     "library"
@@ -22,7 +22,7 @@
   },
   "autoload": {
     "psr-4": {
-      "siad007\\kindergarten\\": "src"
+      "MehrAlsNix\\kindergarten\\": "src"
     }
   }
 }

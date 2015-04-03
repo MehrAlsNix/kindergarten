@@ -3,5 +3,5 @@
 
 include __DIR__ . '/../vendor/autoload.php';
 
-$app = new siad007\kindergarten\Application();
+$app = new MehrAlsNix\kindergarten\Application();
 $app->run();

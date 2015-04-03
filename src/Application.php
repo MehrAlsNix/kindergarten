@@ -1,6 +1,6 @@
 <?php
 
-namespace siad007\kindergarten;
+namespace MehrAlsNix\kindergarten;
 
 use Cilex\Application as Cilex;
 use Cilex\Provider\MonologServiceProvider;

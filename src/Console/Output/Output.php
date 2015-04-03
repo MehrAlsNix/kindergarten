@@ -1,6 +1,6 @@
 <?php
 
-namespace siad007\kindergarten\Console\Output;
+namespace MehrAlsNix\kindergarten\Console\Output;
 
 use Monolog\Logger;
 use Symfony\Component\Console\Output\ConsoleOutput;

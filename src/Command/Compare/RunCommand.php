@@ -1,8 +1,8 @@
 <?php
 
-namespace siad007\kindergarten\Command\Compare;
+namespace MehrAlsNix\kindergarten\Command\Compare;
 
-use siad007\kindergarten\Command\Command;
+use MehrAlsNix\kindergarten\Command\Command;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
