@@ -17,7 +17,7 @@
   "require": {
     "cilex/cilex": "1.*",
     "symfony/stopwatch": "2.6.*",
-    "monolog/monolog": "1.9.*",
+    "monolog/monolog": "~1",
     "symfony/config": "2.6.*"
   },
   "autoload": {
