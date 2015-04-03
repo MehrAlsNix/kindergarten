@@ -13,6 +13,11 @@ use Symfony\Component\Console\Shell;
 use Symfony\Component\Console\Application as ConsoleApplication;
 use Symfony\Component\Stopwatch\Stopwatch;
 
+/**
+ * Class Application
+ *
+ * @package MehrAlsNix\kindergarten
+ */
 class Application extends Cilex
 {
     public static $VERSION = '0.0.0';
@@ -91,9 +96,13 @@ class Application extends Cilex
         ErrorHandler::register($this['monolog']);
     }
 
-    public function configureLogger($logger, $level, $logPath = null)
+    /**
+     * @param Logger     $logger
+     * @param int|string $level
+     * @param string     $logPath optional
+     */
+    public function configureLogger(Logger $logger, $level, $logPath = null)
     {
-        /** @var Logger $monolog */
         $monolog = $logger;
         switch ($level) {
             case 'emergency':

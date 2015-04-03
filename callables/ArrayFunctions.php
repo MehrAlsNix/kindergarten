@@ -4,21 +4,21 @@ return [
     [
         'name' => '',
         'description' => '',
-        'callable' => function () {
+        'callable' => function() {
 
         }
     ],
     [
         'name' => '',
         'description' => '',
-        'callable' => function () {
+        'callable' => function() {
 
         }
     ],
     [
         'name' => '',
         'description' => '',
-        'callable' => function () {
+        'callable' => function() {
 
         }
     ]
