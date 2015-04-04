@@ -2,3 +2,12 @@ suites:
     acme_suite:
         namespace: MehrAlsNix\kindergarten
         psr4_prefix: MehrAlsNix\kindergarten
+code_coverage:
+  format:
+    - html
+    - clover
+  output:
+    html: build/coverage
+    clover: build/coverage.xml
+extensions:
+    - PhpSpec\Extension\CodeCoverageExtension
