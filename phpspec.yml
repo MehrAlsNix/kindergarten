@@ -1,0 +1,4 @@
+suites:
+    acme_suite:
+        namespace: MehrAlsNix\kindergarten
+        psr4_prefix: MehrAlsNix\kindergarten
