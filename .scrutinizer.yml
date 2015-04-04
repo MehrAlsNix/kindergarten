@@ -17,3 +17,11 @@ build_failure_conditions:
 filter:
   excluded_paths:
     - vendor/*
+build:
+  tests:
+    override:
+      -
+        command: 'bin/phpspec run -f progress -c phpspec.yml'
+        coverage:
+          file: 'bin/coverage.xml'
+          format: 'php-clover'
