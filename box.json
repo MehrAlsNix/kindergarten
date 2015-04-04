@@ -1,0 +1,67 @@
+{
+  "chmod": "0755",
+  "directories": [
+    "src",
+    "callables",
+    "vendor"
+  ],
+  "files": [
+    "vendor/autoload.php",
+    "vendor/herrera-io/phar-update/res/schema.json"
+  ],
+  "finder": [
+    {
+      "name": "*.php",
+      "exclude": [
+        "Test",
+        "Tests",
+        "test",
+        "tests"
+      ],
+      "in": [
+        "vendor/cilex/cilex/src",
+        "vendor/cilex/console-service-provider/src",
+        "vendor/composer",
+        "vendor/herrera-io",
+        "vendor/seld/jsonlint",
+        "vendor/justinrainbow/json-schema",
+        "vendor/doctrine/annotations/lib",
+        "vendor/doctrine/lexer/lib",
+        "vendor/monolog/monolog/src",
+        "vendor/phpdocumentor/reflection-docblock/src",
+        "vendor/pimple/pimple/lib",
+        "vendor/psr/log/Psr",
+        "vendor/symfony"
+      ]
+    }
+  ],
+  "finder-bin": [
+    {
+      "notName": "*.php",
+      "exclude": [
+        "Test",
+        "Tests",
+        "test",
+        "tests"
+      ],
+      "in": [
+        "vendor/cilex/cilex/src",
+        "vendor/cilex/console-service-provider/src",
+        "vendor/composer",
+        "vendor/herrera-io",
+        "vendor/seld/jsonlint",
+        "vendor/justinrainbow/json-schema",
+        "vendor/doctrine/annotations/lib",
+        "vendor/doctrine/lexer/lib",
+        "vendor/monolog/monolog/src",
+        "vendor/phpdocumentor/reflection-docblock/src",
+        "vendor/pimple/pimple/lib",
+        "vendor/psr/log/Psr",
+        "vendor/symfony"
+      ]
+    }
+  ],
+  "main": "bin/kindergarten",
+  "output": "bin/kindergarten.phar",
+  "stub": true
+}
