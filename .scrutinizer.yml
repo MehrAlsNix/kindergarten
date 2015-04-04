@@ -21,7 +21,7 @@ build:
   tests:
     override:
       -
-        command: 'bin/phpspec run -f progress -c phpspec.yml'
+        command: 'bin/phpspec run -f progress'
         coverage:
-          file: 'bin/coverage.xml'
+          file: 'build/coverage.xml'
           format: 'php-clover'
