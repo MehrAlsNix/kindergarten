@@ -53,6 +53,7 @@ HELP
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        /*
         $parse_command = $this->getApplication()->find('project:parse');
         $transform_command = $this->getApplication()->find('project:transform');
         $parse_input = new ArrayInput(
@@ -99,10 +100,10 @@ HELP
             return $return_code;
         }
         if ($output->getVerbosity() === OutputInterface::VERBOSITY_DEBUG) {
-            /** @var ProjectDescriptorBuilder $descriptorBuilder */
             $descriptorBuilder = $this->getService('descriptor.builder');
             file_put_contents('ast.dump', serialize($descriptorBuilder->getProjectDescriptor()));
         }
+        */
         return 0;
     }
 }
