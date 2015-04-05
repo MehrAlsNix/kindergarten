@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: said
- * Date: 05.04.2015
- * Time: 01:12
- */
 
 namespace spec\MehrAlsNix\kindergarten\Console\Output;
 
