@@ -8,6 +8,7 @@ use Monolog\ErrorHandler;
 use Monolog\Handler\NullHandler;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
+use Psr\Log\LogLevel;
 use Symfony\Component\Console\Input\ArgvInput;
 use Symfony\Component\Console\Shell;
 use Symfony\Component\Console\Application as ConsoleApplication;
@@ -21,6 +22,21 @@ use Symfony\Component\Stopwatch\Stopwatch;
 class Application extends Cilex
 {
     public static $VERSION = '0.0.0';
+
+    private $logLevelMap = [
+        'emergency' => Logger::EMERGENCY,
+        'emerg'     => Logger::EMERGENCY,
+        'alert'     => Logger::ALERT,
+        'crit'      => Logger::CRITICAL,
+        'critical'  => Logger::CRITICAL,
+        'err'       => Logger::ERROR,
+        'error'     => Logger::ERROR,
+        'warning'   => Logger::WARNING,
+        'warn'      => Logger::WARNING,
+        'notice'    => Logger::NOTICE,
+        'info'      => Logger::INFO,
+        'debug'     => Logger::DEBUG
+    ];
 
     public function __construct()
     {
@@ -104,37 +120,8 @@ class Application extends Cilex
     public function configureLogger(Logger $logger, $level, $logPath = null)
     {
         $monolog = $logger;
-        switch ($level) {
-            case 'emergency':
-            case 'emerg':
-                $level = Logger::EMERGENCY;
-                break;
-            case 'alert':
-                $level = Logger::ALERT;
-                break;
-            case 'critical':
-            case 'crit':
-                $level = Logger::CRITICAL;
-                break;
-            case 'error':
-            case 'err':
-                $level = Logger::ERROR;
-                break;
-            case 'warning':
-            case 'warn':
-                $level = Logger::WARNING;
-                break;
-            case 'notice':
-                $level = Logger::NOTICE;
-                break;
-            case 'info':
-                $level = Logger::INFO;
-                break;
-            case 'debug':
-                $level = Logger::DEBUG;
-                break;
-        }
-        $this['monolog.level'] = $level;
+
+        $this['monolog.level'] = isset($this->logLevelMap[$level]) ? $this->logLevelMap[$level] : 'quiet';
         if ($logPath) {
             $logPath = str_replace(
                 array('{APP_ROOT}', '{DATE}'),
