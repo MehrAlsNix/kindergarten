@@ -19,7 +19,7 @@ class RunCommand extends Command
     protected function configure()
     {
         $this->setName('analyze:run')
-            ->setAliases(array('anal'))
+            ->setAliases(array('run'))
             ->setDescription(
                 'Parses and transforms the given files to a specified location'
             )
