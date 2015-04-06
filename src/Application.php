@@ -137,7 +137,7 @@ class Application extends Cilex
         $monolog = $logger;
 
         $this['monolog.level'] = isset($this->logLevelMap[$level]) ? $this->logLevelMap[$level] : 'quiet';
-        if ($logPath) {
+        if ($logPath !== null) {
             $logPath = str_replace(
                 array('{APP_ROOT}', '{DATE}'),
                 array(realpath(__DIR__ . '/..'), $this['kernel.timer.start']),
