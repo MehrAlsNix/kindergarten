@@ -1,6 +1,7 @@
 {
   "name": "MehrAlsNix/kindergarten",
   "description": "Der Kindergarten von mehr als nix!",
+  "license": "MIT",
   "keywords": [
     "library"
   ],

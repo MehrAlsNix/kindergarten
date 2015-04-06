@@ -1,4 +1,16 @@
 <?php
+/**
+ * kindergarten
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+ * WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS
+ * OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+ * OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ *
+ * @copyright 2015 MehrAlsNix (http://www.mehralsnix.de)
+ * @license   http://www.opensource.org/licenses/mit-license.php MIT
+ * @link      http://github.com/MehrAlsNix/kindergarten
+ */
 
 namespace MehrAlsNix\kindergarten\Command\Compare;
 
@@ -18,7 +30,7 @@ class RunCommand extends Command
      */
     protected function configure()
     {
-        $this->setName('compare:run')
+        $this->setName('compare:exec')
             ->setAliases(array('comp'))
             ->setDescription(
                 'Compares a callable against a list of others for measuring performance and memory consumption'
@@ -53,57 +65,6 @@ HELP
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        /*
-        $parse_command = $this->getApplication()->find('project:parse');
-        $transform_command = $this->getApplication()->find('project:transform');
-        $parse_input = new ArrayInput(
-            array(
-                'command' => 'project:parse',
-                '--filename' => $input->getOption('filename'),
-                '--directory' => $input->getOption('directory'),
-                '--encoding' => $input->getOption('encoding'),
-                '--extensions' => $input->getOption('extensions'),
-                '--ignore' => $input->getOption('ignore'),
-                '--ignore-tags' => $input->getOption('ignore-tags'),
-                '--hidden' => $input->getOption('hidden'),
-                '--ignore-symlinks' => $input->getOption('ignore-symlinks'),
-                '--markers' => $input->getOption('markers'),
-                '--title' => $input->getOption('title'),
-                '--target' => $input->getOption('cache-folder') ?: $input->getOption('target'),
-                '--force' => $input->getOption('force'),
-                '--validate' => $input->getOption('validate'),
-                '--visibility' => $input->getOption('visibility'),
-                '--defaultpackagename' => $input->getOption('defaultpackagename'),
-                '--sourcecode' => $input->getOption('sourcecode'),
-                '--parseprivate' => $input->getOption('parseprivate'),
-                '--progressbar' => $input->getOption('progressbar'),
-                '--log' => $input->getOption('log')
-            ),
-            $this->getDefinition()
-        );
-        $return_code = $parse_command->run($parse_input, $output);
-        if ($return_code !== 0) {
-            return $return_code;
-        }
-        $transform_input = new ArrayInput(
-            array(
-                'command' => 'project:transform',
-                '--source' => $input->getOption('cache-folder') ?: $input->getOption('target'),
-                '--target' => $input->getOption('target'),
-                '--template' => $input->getOption('template'),
-                '--progressbar' => $input->getOption('progressbar'),
-                '--log' => $input->getOption('log')
-            )
-        );
-        $return_code = $transform_command->run($transform_input, $output);
-        if ($return_code !== 0) {
-            return $return_code;
-        }
-        if ($output->getVerbosity() === OutputInterface::VERBOSITY_DEBUG) {
-            $descriptorBuilder = $this->getService('descriptor.builder');
-            file_put_contents('ast.dump', serialize($descriptorBuilder->getProjectDescriptor()));
-        }
-        */
         return 0;
     }
 }
