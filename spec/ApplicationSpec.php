@@ -17,6 +17,7 @@
 
 namespace spec\MehrAlsNix\kindergarten;
 
+use Monolog\Logger;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
@@ -35,5 +36,10 @@ class ApplicationSpec extends ObjectBehavior
     function it_is_runnable()
     {
         $this->run();
+    }
+
+    function it_should_be_able_to_configure_a_logger(Logger $logger)
+    {
+        $this->configureLogger($logger, 'quiet')->shouldReturn(null);
     }
 }

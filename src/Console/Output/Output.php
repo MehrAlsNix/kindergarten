@@ -24,6 +24,7 @@ class Output extends ConsoleOutput
 {
     /** @var Logger */
     protected $logger;
+
     /**
      * Sets a logger object to write information to.
      *
