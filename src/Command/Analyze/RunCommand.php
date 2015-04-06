@@ -30,8 +30,8 @@ class RunCommand extends Command
      */
     protected function configure()
     {
-        $this->setName('analyze:exec')
-            ->setAliases(array('exec'))
+        $this->setName('analyze:run')
+            ->setAliases(array('run'))
             ->setDescription(
                 'Parses and transforms the given files to a specified location'
             )
@@ -39,7 +39,7 @@ class RunCommand extends Command
                 <<<HELP
 
 HELP
-            )
+            );
         parent::configure();
     }
     /**

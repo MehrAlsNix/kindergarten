@@ -30,7 +30,7 @@ class RunCommand extends Command
      */
     protected function configure()
     {
-        $this->setName('compare:exec')
+        $this->setName('compare:run')
             ->setAliases(array('comp'))
             ->setDescription(
                 'Compares a callable against a list of others for measuring performance and memory consumption'
