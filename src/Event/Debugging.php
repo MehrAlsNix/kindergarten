@@ -23,7 +23,7 @@ class Debugging extends BaseEvent
 {
     /** @var string Message to display with the debugging event */
     protected $message;
-    /** @var int Default priority level for these events is DEBUG */
+    /** @var string Default priority level for these events is DEBUG */
     protected $priority = LogLevel::DEBUG;
     /** @var string[] Extra parameters to insert into the message after translation */
     protected $context = array();
@@ -51,7 +51,7 @@ class Debugging extends BaseEvent
     /**
      * Returns the priority level associated with this logging event.
      *
-     * @return int
+     * @return string
      */
     public function getPriority()
     {

@@ -13,4 +13,18 @@ class DebuggingSpec extends ObjectBehavior
         $this->beConstructedWith($event);
         $this->shouldHaveType('MehrAlsNix\kindergarten\Event\Debugging');
     }
+
+    function it_is_aware_of_messages(Debugging $event)
+    {
+        $this->beConstructedWith($event);
+        $this->setMessage('test')
+            ->shouldReturnAnInstanceOf('MehrAlsNix\kindergarten\Event\Debugging');
+        $this->getMessage()->shouldBe('test');
+    }
+
+    function it_is_aware_of_priorities(Debugging $event)
+    {
+        $this->beConstructedWith($event);
+        $this->getPriority()->shouldBe('debug');
+    }
 }
