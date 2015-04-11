@@ -8,6 +8,7 @@ abstract class BaseEvent extends Event
 {
     /** @var object Represents an object that is the subject of this event */
     protected $subject;
+
     /**
      * Initializes this event with the given subject.
      *

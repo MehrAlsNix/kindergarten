@@ -2,7 +2,7 @@
 
 namespace MehrAlsNix\kindergarten\Event;
 
-class Logging extends BaseEvent
+class Logging extends Debugging
 {
 
 }
