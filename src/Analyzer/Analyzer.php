@@ -19,6 +19,8 @@ namespace MehrAlsNix\kindergarten\Analyzer;
 
 use MehrAlsNix\kindergarten\Component\Component;
 use MehrAlsNix\kindergarten\Event\Dispatcher;
+use Psr\Log\LogLevel;
+use MehrAlsNix\kindergarten\Event\Logging;
 
 final class Analyzer implements Component
 {
@@ -27,8 +29,13 @@ final class Analyzer implements Component
 
     }
 
-    public function log()
+    public function log($message, $level = LogLevel::INFO)
     {
-
+        Dispatcher::getInstance()->dispatch(
+            'system.log',
+            Logging::createInstance($this)
+                ->setMessage($message)
+                ->setPriority($priority)
+        );
     }
 }
