@@ -13,6 +13,7 @@ class LoggingSpec extends ObjectBehavior
         $this->beConstructedThrough('createInstance', [$event]);
         $this->shouldHaveType('MehrAlsNix\kindergarten\Event\Logging');
         $this->shouldBeAnInstanceOf('MehrAlsNix\kindergarten\Event\Debugging');
+        $this->getSubject()->shouldHaveType('MehrAlsNix\kindergarten\Event\Logging');
     }
 
     function it_is_aware_of_priorities(Logging $event)
