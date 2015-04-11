@@ -11,6 +11,7 @@ class LoggingSpec extends ObjectBehavior
     function it_is_initializable(Logging $event)
     {
         $this->beConstructedThrough('createInstance', [$event]);
-        $this->beAnInstanceOf('MehrAlsNix\kindergarten\Event\BaseEvent');
+        $this->shouldHaveType('MehrAlsNix\kindergarten\Event\Logging');
+        $this->shouldBeAnInstanceOf('MehrAlsNix\kindergarten\Event\Debugging');
     }
 }
