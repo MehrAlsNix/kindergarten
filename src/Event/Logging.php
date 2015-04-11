@@ -15,7 +15,7 @@ class Logging extends Debugging
     /**
      * Set the priority level for this event.
      *
-     * @param int $priority
+     * @param string $priority
      *
      * @see LogLevel for the constants used in determining the logging levels.
      *
