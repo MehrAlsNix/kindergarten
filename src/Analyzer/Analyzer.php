@@ -29,13 +29,17 @@ final class Analyzer implements Component
 
     }
 
+    /**
+     * @param string $message
+     * @param string $level
+     */
     public function log($message, $level = LogLevel::INFO)
     {
         Dispatcher::getInstance()->dispatch(
             'system.log',
             Logging::createInstance($this)
                 ->setMessage($message)
-                ->setPriority($priority)
+                ->setPriority($level)
         );
     }
 }

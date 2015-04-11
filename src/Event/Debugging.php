@@ -32,7 +32,7 @@ class Debugging extends BaseEvent
      *
      * @param string $message
      *
-     * @return Debugging
+     * @return BaseEvent
      */
     public function setMessage($message)
     {
