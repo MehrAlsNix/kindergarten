@@ -15,14 +15,31 @@
  * @link      http://github.com/MehrAlsNix/kindergarten
  */
 
-namespace MehrAlsNix\kindergarten\Collector;
+namespace MehrAlsNix\kindergarten\Event;
 
-use MehrAlsNix\kindergarten\Component\Component;
+use Symfony\Component\EventDispatcher\EventDispatcher;
 
-final class Collector implements Component
+class Dispatcher extends EventDispatcher
 {
-    public function load()
-    {
+    /** @var Dispatcher $instance */
+    private static $instance;
 
+    private function __construct()
+    {
+        if (self::$instance === null) {
+            self::$instance = new self;
+        }
+    }
+
+    /**
+     * @return Dispatcher
+     */
+    public static function getInstance()
+    {
+        return self::$instance;
+    }
+
+    private function __clone()
+    {
     }
 }

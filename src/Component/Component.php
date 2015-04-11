@@ -15,14 +15,9 @@
  * @link      http://github.com/MehrAlsNix/kindergarten
  */
 
-namespace MehrAlsNix\kindergarten\Collector;
+namespace MehrAlsNix\kindergarten\Component;
 
-use MehrAlsNix\kindergarten\Component\Component;
-
-final class Collector implements Component
+interface Component
 {
-    public function load()
-    {
-
-    }
+    public function load();
 }

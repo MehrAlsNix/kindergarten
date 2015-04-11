@@ -17,6 +17,18 @@
 
 namespace MehrAlsNix\kindergarten\Analyzer;
 
-class Analyzer
+use MehrAlsNix\kindergarten\Component\Component;
+use MehrAlsNix\kindergarten\Event\Dispatcher;
+
+final class Analyzer implements Component
 {
+    public function load()
+    {
+
+    }
+
+    public function log()
+    {
+
+    }
 }
