@@ -40,6 +40,7 @@ class ApplicationSpec extends ObjectBehavior
 
     function it_should_be_able_to_configure_a_logger(Logger $logger)
     {
-        $this->configureLogger($logger, 'quiet')->shouldReturn(null);
+        $this->configureLogger($logger, 'quiet', '{APP_ROOT} - {DATE}')
+            ->shouldReturn(null);
     }
 }
