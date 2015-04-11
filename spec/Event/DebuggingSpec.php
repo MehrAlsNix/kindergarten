@@ -27,4 +27,12 @@ class DebuggingSpec extends ObjectBehavior
         $this->beConstructedWith($event);
         $this->getPriority()->shouldBe('debug');
     }
+
+    function it_is_aware_of_a_context(Debugging $event)
+    {
+        $this->beConstructedWith($event);
+        $this->setContext(['test'])
+            ->shouldReturnAnInstanceOf('MehrAlsNix\kindergarten\Event\Debugging');
+        $this->getContext()->shouldBe(['test']);
+    }
 }
