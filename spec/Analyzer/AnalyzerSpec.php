@@ -11,4 +11,9 @@ class AnalyzerSpec extends ObjectBehavior
     {
         $this->shouldHaveType('MehrAlsNix\kindergarten\Analyzer\Analyzer');
     }
+
+    function it_is_executable()
+    {
+        $this->execute()->shouldReturn(null);
+    }
 }

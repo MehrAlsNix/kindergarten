@@ -11,4 +11,9 @@ class ComparatorSpec extends ObjectBehavior
     {
         $this->shouldHaveType('MehrAlsNix\kindergarten\Comparator\Comparator');
     }
+
+    function it_is_executable()
+    {
+        $this->execute();
+    }
 }
