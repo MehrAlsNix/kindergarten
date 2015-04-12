@@ -63,9 +63,14 @@ HELP
 
         foreach ($files as $file) {
             foreach ($file as $callable) {
-                $output->writeln('  [NAME]  ' . $callable['name']);
-                $output->writeln('  [DESC]  ' . $callable['description']);
+                $output->writeln($callable['description']);
+                $output->writeTimedLog(
+                    'Execute callable ' . $callable['name'],
+                    $callable['callable']
+                );
             }
         }
+
+        return 0;
     }
 }

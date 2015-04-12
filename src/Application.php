@@ -117,7 +117,7 @@ class Application extends Cilex
         $app = $this;
         $this['monolog.configure'] = self::protect(
             function($log) use ($app) {
-                $level = 'error'; //(string)$app['config']->logging->level;
+                $level = 'error'; // (string)$app['config']->logging->level;
 
                 $logPath = null;
                     /*
