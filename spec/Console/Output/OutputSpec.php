@@ -17,6 +17,7 @@
 
 namespace spec\MehrAlsNix\kindergarten\Console\Output;
 
+use Monolog\Logger;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
@@ -30,5 +31,23 @@ class OutputSpec extends ObjectBehavior
     function it_should_be_a_console_output()
     {
         $this->shouldBeAnInstanceOf('Symfony\Component\Console\Output\ConsoleOutput');
+    }
+
+    function it_should_be_logger_aware(Logger $logger)
+    {
+        $this->setLogger($logger);
+        $this->getLogger()->shouldReturnAnInstanceOf('Monolog\Logger');
+    }
+
+    function it_should_be_able_to_write(Logger $logger)
+    {
+        $this->setLogger($logger);
+        $this->write('test')->shouldReturn(null);
+    }
+
+    function it_should_be_able_to_write_timed_log(Logger $logger)
+    {
+        $this->setLogger($logger);
+        $this->writeTimedLog('test', 'strtolower', ['test'])->shouldReturn(null);
     }
 }
