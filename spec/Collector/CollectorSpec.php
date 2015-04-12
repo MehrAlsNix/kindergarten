@@ -20,6 +20,6 @@ class CollectorSpec extends ObjectBehavior
 
     function it_should_be_executable()
     {
-        $this->execute();
+        $this->execute()->shouldHaveKey(0);
     }
 }

@@ -53,11 +53,8 @@ final class Collector implements Component
     public function execute()
     {
         $callableType = new Phparray();
-        $callables = [];
-        foreach ($this->finder as $file) {
-            $callables[] = $callableType->convert($file->getContents());
-        }
+        $callables = $callableType->convert($this->finder);
 
-        // print_r($callables);
+        return $callables;
     }
 }

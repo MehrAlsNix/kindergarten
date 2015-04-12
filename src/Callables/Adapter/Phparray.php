@@ -17,10 +17,16 @@
 
 namespace MehrAlsNix\kindergarten\Callables\Adapter;
 
+use Symfony\Component\Finder\Finder;
+
 class Phparray
 {
-    public function convert($content)
+    public function convert(Finder $finder)
     {
-        return __CLASS__ . ' ' . $content;
+        foreach ($finder as $file) {
+            $callables[] = include_once $file->getRealPath();
+        }
+
+        return $callables;
     }
 }
