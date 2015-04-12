@@ -18,13 +18,19 @@
 namespace MehrAlsNix\kindergarten\Analyzer;
 
 use MehrAlsNix\kindergarten\Component\Component;
+use MehrAlsNix\kindergarten\Event\Debugging;
 use MehrAlsNix\kindergarten\Event\Dispatcher;
 use Psr\Log\LogLevel;
 use MehrAlsNix\kindergarten\Event\Logging;
 
 final class Analyzer implements Component
 {
-    public function load()
+    public function __construct()
+    {
+
+    }
+
+    public function execute()
     {
 
     }
@@ -40,6 +46,18 @@ final class Analyzer implements Component
             Logging::createInstance($this)
                 ->setMessage($message)
                 ->setPriority($level)
+        );
+    }
+
+    /**
+     * @param string $message The message to log.
+     */
+    public function debug($message)
+    {
+        Dispatcher::getInstance()->dispatch(
+            'system.debug',
+            Debugging::createInstance($this)
+                ->setMessage($message)
         );
     }
 }

@@ -15,39 +15,8 @@
  * @link      http://github.com/MehrAlsNix/kindergarten
  */
 
-namespace MehrAlsNix\kindergarten\Collector;
+namespace MehrAlsNix\kindergarten\Callables\Adapter;
 
-use MehrAlsNix\kindergarten\Component\Component;
-use Symfony\Component\Finder\Finder;
-
-final class Collector implements Component
+class Phparray
 {
-    /** @var string $type */
-    private $type = 'phparray';
-
-    /** @var array $callables */
-    private $callables;
-
-    /** @var Finder $finder */
-    private $finder;
-
-    public function __construct($path = '../callables/')
-    {
-        $this->finder = (new Finder())->in($path);
-    }
-
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    public function setType($type)
-    {
-        $this->type = $type;
-    }
-
-    public function execute()
-    {
-
-    }
 }

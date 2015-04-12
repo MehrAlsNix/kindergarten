@@ -21,7 +21,7 @@ use MehrAlsNix\kindergarten\Component\Component;
 
 final class Comparator implements Component
 {
-    public function load()
+    public function execute()
     {
 
     }

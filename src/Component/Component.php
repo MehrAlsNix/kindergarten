@@ -19,5 +19,5 @@ namespace MehrAlsNix\kindergarten\Component;
 
 interface Component
 {
-    public function load();
+    public function execute();
 }

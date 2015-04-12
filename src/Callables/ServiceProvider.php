@@ -15,39 +15,20 @@
  * @link      http://github.com/MehrAlsNix/kindergarten
  */
 
-namespace MehrAlsNix\kindergarten\Collector;
+namespace MehrAlsNix\kindergarten\Callables;
 
-use MehrAlsNix\kindergarten\Component\Component;
-use Symfony\Component\Finder\Finder;
+use Cilex\Application;
+use Cilex\ServiceProviderInterface;
 
-final class Collector implements Component
+class ServiceProvider implements ServiceProviderInterface
 {
-    /** @var string $type */
-    private $type = 'phparray';
-
-    /** @var array $callables */
-    private $callables;
-
-    /** @var Finder $finder */
-    private $finder;
-
-    public function __construct($path = '../callables/')
+    /**
+     * Registers services on the given app.
+     *
+     * @param Application $app An Application instance
+     */
+    public function register(Application $app)
     {
-        $this->finder = (new Finder())->in($path);
-    }
-
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    public function setType($type)
-    {
-        $this->type = $type;
-    }
-
-    public function execute()
-    {
-
+        // TODO: Implement register() method.
     }
 }
