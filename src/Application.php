@@ -62,6 +62,7 @@ class Application extends Cilex
             return new Stopwatch();
         };
 
+        $this->addEventDispatcher();
         $this->addLogging();
 
         $this->command(new Command\Analyze\RunCommand());
@@ -86,6 +87,15 @@ class Application extends Cilex
         $output = new Console\Output\Output();
         $output->setLogger($this['monolog']);
         $app->run(new ArgvInput(), $output);
+    }
+
+    protected function addEventDispatcher()
+    {
+        $this['event_dispatcher'] = self::share(
+            function () {
+                return Event\Dispatcher::getInstance();
+            }
+        );
     }
 
     /**

@@ -17,22 +17,22 @@
 
 return [
     [
-        'name' => '',
-        'description' => '',
+        'name' => 'array merger #1',
+        'description' => 'This is a array merging function using only the += operator.',
         'callable' => function() {
 
         }
     ],
     [
-        'name' => '',
-        'description' => '',
+        'name' => 'array merger #2',
+        'description' => 'This is a array merging function using the build in array_merge() function.',
         'callable' => function() {
 
         }
     ],
     [
-        'name' => '',
-        'description' => '',
+        'name' => 'array merger #3',
+        'description' => 'This is a custom array merger function.',
         'callable' => function() {
 
         }

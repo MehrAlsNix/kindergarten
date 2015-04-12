@@ -17,7 +17,10 @@
 
 namespace MehrAlsNix\kindergarten\Command\Analyze;
 
+use MehrAlsNix\kindergarten\Analyzer\Analyzer;
+use MehrAlsNix\kindergarten\Collector\Collector;
 use MehrAlsNix\kindergarten\Command\Command;
+use Psr\Log\LogLevel;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -55,6 +58,14 @@ HELP
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        return 0;
+        $collector = new Collector();
+        $files = $collector->execute();
+
+        foreach ($files as $file) {
+            foreach ($file as $callable) {
+                $output->writeln('  [NAME]  ' . $callable['name']);
+                $output->writeln('  [DESC]  ' . $callable['description']);
+            }
+        }
     }
 }

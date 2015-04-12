@@ -26,9 +26,6 @@ class Dispatcher extends EventDispatcher
 
     private function __construct()
     {
-        if (self::$instance === null) {
-            self::$instance = new self;
-        }
     }
 
     /**
@@ -36,6 +33,10 @@ class Dispatcher extends EventDispatcher
      */
     public static function getInstance()
     {
+        if (self::$instance === null) {
+            self::$instance = new self;
+        }
+
         return self::$instance;
     }
 
