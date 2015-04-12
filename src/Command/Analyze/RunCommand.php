@@ -17,11 +17,10 @@
 
 namespace MehrAlsNix\kindergarten\Command\Analyze;
 
-use MehrAlsNix\kindergarten\Analyzer\Analyzer;
+use MehrAlsNix\kindergarten\Callables\Executor;
 use MehrAlsNix\kindergarten\Collector\Collector;
 use MehrAlsNix\kindergarten\Command\Command;
 use Psr\Log\LogLevel;
-use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -45,6 +44,12 @@ class RunCommand extends Command
                 <<<HELP
 
 HELP
+            )
+            ->addArgument(
+                'iterations',
+                InputOption::VALUE_OPTIONAL,
+                'The count of iterations the callable should walk.',
+                [1000]
             );
         parent::configure();
     }
@@ -60,13 +65,18 @@ HELP
     {
         $collector = new Collector();
         $files = $collector->execute();
+        $counter = $input->getArgument('iterations')[0];
 
         foreach ($files as $file) {
             foreach ($file as $callable) {
-                $output->writeln($callable['description']);
+                $output->write('', true);
+                $output->write($callable['description'], true);
+                $processor = new Executor();
+                $processor->setIterations($counter);
+                $processor->setCallable($callable['callable']);
                 $output->writeTimedLog(
                     'Execute callable ' . $callable['name'],
-                    $callable['callable']
+                    [$processor, 'execute']
                 );
             }
         }
