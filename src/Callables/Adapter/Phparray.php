@@ -19,4 +19,8 @@ namespace MehrAlsNix\kindergarten\Callables\Adapter;
 
 class Phparray
 {
+    public function convert($content)
+    {
+        return __CLASS__ . ' ' . $content;
+    }
 }

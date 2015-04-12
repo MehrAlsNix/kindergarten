@@ -17,6 +17,7 @@
 
 namespace MehrAlsNix\kindergarten\Collector;
 
+use MehrAlsNix\kindergarten\Callables\Adapter\Phparray;
 use MehrAlsNix\kindergarten\Component\Component;
 use Symfony\Component\Finder\Finder;
 
@@ -51,6 +52,12 @@ final class Collector implements Component
 
     public function execute()
     {
+        $callableType = new Phparray();
+        $callables = [];
+        foreach ($this->finder as $file) {
+            $callables[] = $callableType->convert($file->getContents());
+        }
 
+        // print_r($callables);
     }
 }

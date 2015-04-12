@@ -17,4 +17,9 @@ class CollectorSpec extends ObjectBehavior
         $this->setType('phparray');
         $this->getType()->shouldBeEqualTo('phparray');
     }
+
+    function it_should_be_executable()
+    {
+        $this->execute();
+    }
 }
