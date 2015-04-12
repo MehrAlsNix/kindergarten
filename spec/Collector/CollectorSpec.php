@@ -11,4 +11,10 @@ class CollectorSpec extends ObjectBehavior
     {
         $this->shouldHaveType('MehrAlsNix\kindergarten\Collector\Collector');
     }
+
+    function it_should_aware_of_adapter_type()
+    {
+        $this->setType('phparray');
+        $this->getType()->shouldBeEqualTo('phparray');
+    }
 }

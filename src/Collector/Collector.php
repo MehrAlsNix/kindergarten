@@ -31,7 +31,7 @@ final class Collector implements Component
     /** @var Finder $finder */
     private $finder;
 
-    public function __construct($path = '../callables/')
+    public function __construct($path = __DIR__ . '/../callables/')
     {
         $this->finder = (new Finder())->in($path);
     }
