@@ -11,4 +11,9 @@ class CallablesSpec extends ObjectBehavior
     {
         $this->shouldHaveType('MehrAlsNix\kindergarten\Callables\Callables');
     }
+
+    function it_is_executable()
+    {
+        $this->execute()->shouldReturn(null);
+    }
 }
