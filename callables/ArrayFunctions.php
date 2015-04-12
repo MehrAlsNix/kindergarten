@@ -19,29 +19,35 @@ return [
     [
         'name' => 'array merger #1',
         'description' => 'This is a array merging function using only the += operator.',
-        'callable' => function($a = [0, 1, 2, 3, 4], $b = ['test', 'test2', 'test3']) {
+        'callable' => function() {
+            $a[] = rand(0,100);
+            $b[] = rand(0,100);
             $c = array_merge($a, $b);
         }
     ],
     [
         'name' => 'array merger #2',
         'description' => 'This is a array merging function using the build in array_merge() function.',
-        'callable' => function($a = [0, 1, 2, 3, 4], $b = ['test3', 'test2', 'test1']) {
+        'callable' => function() {
+            $a[] = rand(0,100);
+            $b[] = rand(0,100);
             $c = $a + $b;
         }
     ],
     [
         'name' => 'array unique #1',
         'description' => 'This is a array unique build in function.',
-        'callable' => function($a = [1, 1, 1, 2, 2, 3]) {
+        'callable' => function() {
+            $a[] = rand(0,100);
             $c = array_unique($a);
         }
     ],
     [
         'name' => 'array unique #2',
         'description' => 'This is a array unique with double array flip.',
-        'callable' => function($a = [1, 1, 1, 2, 2, 3]) {
-            $c =array_flip(array_flip($a));
+        'callable' => function() {
+            $a[] = rand(0,100);
+            $c = array_flip(array_flip($a));
         }
     ]
 ];

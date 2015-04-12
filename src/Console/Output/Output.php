@@ -57,7 +57,7 @@ class Output extends ConsoleOutput
         $this->write(sprintf('%-66.66s .. ', $message));
         $timerStart = microtime(true);
         call_user_func_array($operation, $arguments);
-        $this->writeln(sprintf('%4.6fs', microtime(true) - $timerStart));
+        $this->writeln(sprintf('%1.7fs', microtime(true) - $timerStart));
     }
     /**
      * Write an entry to the console and to the provided logger.
