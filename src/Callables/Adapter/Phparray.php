@@ -23,6 +23,7 @@ class Phparray
 {
     public function convert(Finder $finder)
     {
+        $callables = [];
         foreach ($finder as $file) {
             $callables[] = include_once $file->getRealPath();
         }
