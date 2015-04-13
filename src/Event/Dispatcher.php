@@ -24,7 +24,7 @@ class Dispatcher extends EventDispatcher
     /** @var Dispatcher $instance */
     private static $instance;
 
-    private function __construct()
+    protected function __construct()
     {
     }
 
