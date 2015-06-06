@@ -4,4 +4,6 @@ vendor/*
 bin/kindergarten.phar
 bin/phpspec
 bin/phpspec.bat
+bin/phpunit
+bin/phpunit.bat
 build/*
